@@ -1,25 +1,19 @@
+import java.util.Properties
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     `maven-publish`
 }
 
-// Define a function to load properties
-fun loadPropertiesFromFile(filename: String): Properties {
-    val properties = Properties()
-    val file = rootProject.file(filename)
-
-    if (file.exists()) {
-        FileInputStream(file).use { inputStream ->
-            properties.load(inputStream)
-        }
+fun readProperties(propertiesFile: File) = Properties().apply {
+    propertiesFile.inputStream().use { fis ->
+        load(fis)
     }
-
-    return properties
 }
 
 // Load properties from github.properties
-val githubProperties = loadPropertiesFromFile("github.properties")
+val githubProperties = readProperties(rootProject.file("github.properties"))
 
 android {
     namespace = "com.encrypt.encryptfile"
@@ -34,7 +28,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -47,6 +41,40 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+}
+
+fun getVersionName() : String {
+    return "1.0.2"  // Replace with version Name
+}
+
+fun getArtificatId() : String {
+    return "encrypt-file" // Replace with library name ID
+}
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "com.encrypt.encryptfile"
+            artifactId = getArtificatId()
+            version = getVersionName()
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/DanieleCarrozzino/encrypt-file")
+
+            credentials {
+                username = githubProperties["gpr.usr"].toString()
+                password = githubProperties["gpr.token"].toString()
+            }
+        }
     }
 }
 
