@@ -49,13 +49,13 @@ fun getVersionName() : String {
 }
 
 fun getArtificatId() : String {
-    return "encrypt-file" // Replace with library name ID
+    return "encryptfile" // Replace with library name ID
 }
 
 publishing {
     publications {
         register<MavenPublication>("release") {
-            groupId = "com.encrypt.encryptfile"
+            groupId = "com.encrypt"
             artifactId = getArtificatId()
             version = getVersionName()
 
