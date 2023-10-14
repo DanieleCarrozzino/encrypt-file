@@ -45,19 +45,23 @@ android {
 }
 
 fun getVersionName() : String {
-    return "1.0.2"  // Replace with version Name
+    return "1.0.2"
 }
 
 fun getArtificatId() : String {
-    return "encryptfile" // Replace with library name ID
+    return "securefile"
+}
+
+fun getGroupId() : String {
+    return "com.encrypt.library"
 }
 
 publishing {
     publications {
         register<MavenPublication>("release") {
-            groupId = "com.encrypt"
-            artifactId = getArtificatId()
-            version = getVersionName()
+            groupId     = getGroupId()
+            artifactId  = getArtificatId()
+            version     = getVersionName()
 
             afterEvaluate {
                 from(components["release"])

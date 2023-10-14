@@ -42,6 +42,20 @@ dependencies {
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
+    /*
+    *
+    *
+    * //consume library, e.q. 'com.enefce.libraries.sampleAndroidLib:sampleandroidlib:1.0.5'
+    * implementation '<groupId>:<artifactId>:<version>'
+    *
+    * groupid = "com.encrypt"
+    * artifactid = "encryptfile"
+    * version = "1.0.2"
+    *
+    * */
+
+    implementation("com.encrypt:encryptfile:1.0.2")
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

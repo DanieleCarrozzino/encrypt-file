@@ -17,3 +17,29 @@ This class is designed to be versatile and easy to integrate into your Android a
 4 __Decryption:__ Use the __decrypt()__ method to decrypt the file. Again, biometric authentication can be used for added security.
 5 __Callbacks:__ You can set callback functions to handle the completion and failure events during encryption and decryption.
 6 __Advanced Options:__ The class provides advanced options such as deleting the original file after encryption, specifying a custom file name, and more.
+
+
+## Example
+
+```kotlin
+
+val encryptFile = EncryptFileClass(context, file)
+
+// Customize encryption settings
+encryptFile
+    .setResultPath("/custom/path")
+    .setFileName("custom_name")
+    .setMasterKey("your_custom_key")
+    .setCompletedCallback { state -> /* Handle completion */ }
+    .setFailureCallback { message -> /* Handle failure */ }
+
+// Encrypt with biometric authentication
+val encryptedFilePath = encryptFile.encryptWithBiometric(fragment)
+
+```
+
+## Compatibility
+This class is compatible with Android devices running Android 9 (API level 28) and later. Biometric authentication features require Android 10 (API level 29) and later.
+
+### Note
+Ensure that you have the necessary permissions and dependencies configured in your Android project to use the Android Keystore system and biometric authentication.
