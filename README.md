@@ -11,12 +11,12 @@ This class is designed to be versatile and easy to integrate into your Android a
 - Handles the creation of an encrypted version of the file, without overwriting the original.
 
 ## Usage
-. __Initialization:__ Create an instance of __EncryptFileClass__ by providing a Context and the File you want to encrypt or decrypt.
-. __Customization:__ You can customize various aspects of the encryption process, such as enabling or disabling the use of biometric authentication, specifying the path to save the encrypted file, or setting a custom master key.
-. __Encryption:__ Use the __encrypt()__ method to encrypt the file. If you choose to use biometric authentication, it will prompt the user to unlock the file.
-. __Decryption:__ Use the __decrypt()__ method to decrypt the file. Again, biometric authentication can be used for added security.
-. __Callbacks:__ You can set callback functions to handle the completion and failure events during encryption and decryption.
-. __Advanced Options:__ The class provides advanced options such as deleting the original file after encryption, specifying a custom file name, and more.
+- __Initialization:__ Create an instance of __EncryptFileClass__ by providing a Context and the File you want to encrypt or decrypt.
+- __Customization:__ You can customize various aspects of the encryption process, such as enabling or disabling the use of biometric authentication, specifying the path to save the encrypted file, or setting a custom master key.
+- __Encryption:__ Use the __encrypt()__ method to encrypt the file. If you choose to use biometric authentication, it will prompt the user to unlock the file.
+- __Decryption:__ Use the __decrypt()__ method to decrypt the file. Again, biometric authentication can be used for added security.
+- __Callbacks:__ You can set callback functions to handle the completion and failure events during encryption and decryption.
+- __Advanced Options:__ The class provides advanced options such as deleting the original file after encryption, specifying a custom file name, and more.
 
 
 ## Example
