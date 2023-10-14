@@ -41,5 +41,10 @@ val encryptedFilePath = encryptFile.encryptWithBiometric(fragment)
 ## Compatibility
 This class is compatible with Android devices running Android 9 (API level 28) and later. Biometric authentication features require Android 10 (API level 29) and later.
 
+## Implementation
+```kotlin
+implementation("com.encrypt.library:securefile:1.0.2")
+```
+
 ### Note
 Ensure that you have the necessary permissions and dependencies configured in your Android project to use the Android Keystore system and biometric authentication.
